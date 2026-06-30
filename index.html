@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zielona Antresola — Cafe &amp; Restaurant</title>
+  <meta name="description" content="Zielona Antresola — kameralna kawiarnia i restauracja w ogrodowym klimacie. Domowe pierogi, szarlotka, naturalne soki i herbata w sercu zieleni." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: '#1f6b4a',
+            'forest-dark': '#164d36',
+            cream: '#f7f3e8',
+            'cream-dark': '#efe7d4',
+            charcoal: '#2c2a24',
+            clay: '#b4633a',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .text-script { font-family: "Cormorant Garamond", serif; font-style: italic; }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px; background: currentColor; transition: width .3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* FAQ accordion */
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform .25s ease; }
+    details[open] summary { border-bottom-color: transparent; }
+
+    /* Open now badge pulse */
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .45; }
+    }
+    .pulse { animation: pulse-green 2s infinite; }
+
+    /* smooth scroll offset for fixed header */
+    [id] { scroll-margin-top: 88px; }
+  </style>
+</head>
+<body class="bg-cream text-charcoal font-sans antialiased">
+
+  <!-- ═══ HEADER ════════════════════════════════════════════════════════ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-cream/90 backdrop-blur border-b border-forest/10">
+    <nav class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kj8oJQ1WHgnlDatHnDsTfUwCKS7qV1.png" alt="Logo Zielona Antresola" class="h-12 w-auto" />
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-charcoal/80">
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#galeria" class="nav-link">Galeria</a>
+        <a href="#faq" class="nav-link">Informacje</a>
+        <a href="#kontakt" class="nav-link">Kontakt</a>
+      </div>
+      <a href="#kontakt" class="hidden sm:inline-flex items-center rounded-full bg-forest px-5 py-2.5 text-sm font-medium text-cream hover:bg-forest-dark transition-colors">
+        Rezerwacja
+      </a>
+    </nav>
+  </header>
+
+  <!-- ═══ 1. HERO ═══════════════════════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center pt-20">
+    <div class="absolute inset-0">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-9iRKMMxxVr8Y6BsQx1BYHpz2unotNd.jpeg" alt="Gość delektujący się szarlotką w ogrodzie restauracji" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-r from-forest-dark/85 via-forest-dark/50 to-transparent"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-6 w-full">
+      <div class="max-w-xl text-cream">
+        <p class="text-sm uppercase tracking-[0.3em] text-cream/75 mb-4">Cafe &amp; Restaurant · Warszawa · od 2007</p>
+        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight text-balance">
+          Domowa kuchnia<br />w sercu zieleni
+        </h1>
+        <p class="mt-6 text-lg text-cream/90 leading-relaxed text-pretty max-w-md">
+          Kameralne miejsce ze świeżymi sokami, pierogami lepionymi na miejscu
+          i szarlotką, po której chce się zostać dłużej — przy ceglanym murze,
+          wśród kwiatów.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-4">
+          <a href="#kontakt" class="inline-flex items-center rounded-full bg-cream px-7 py-3.5 text-sm font-medium text-forest-dark hover:bg-white transition-colors">
+            Zarezerwuj stolik
+          </a>
+          <a href="#menu" class="inline-flex items-center rounded-full border border-cream/60 px-7 py-3.5 text-sm font-medium text-cream hover:bg-cream/10 transition-colors">
+            Zobacz menu
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. DOWODY ZAUFANIA ════════════════════════════════════════════ -->
+  <section class="bg-forest text-cream py-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-16 text-center">
+
+        <!-- Ocena Google -->
+        <div class="flex items-center gap-3">
+          <div class="flex gap-0.5 text-yellow-300 text-xl leading-none">★★★★★</div>
+          <div class="text-left">
+            <p class="font-semibold text-lg leading-tight">4,8 / 5</p>
+            <p class="text-cream/65 text-xs">340 opinii Google</p>
+          </div>
+        </div>
+
+        <div class="hidden sm:block w-px h-10 bg-cream/20"></div>
+
+        <!-- Wyróżnienie -->
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🏆</span>
+          <div class="text-left">
+            <p class="font-semibold leading-tight">Najlepsza kawiarnia 2023</p>
+            <p class="text-cream/65 text-xs">Plebiscyt Warszawa Smakuje</p>
+          </div>
+        </div>
+
+        <div class="hidden sm:block w-px h-10 bg-cream/20"></div>
+
+        <!-- Lokalne składniki -->
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🌿</span>
+          <div class="text-left">
+            <p class="font-semibold leading-tight">100% lokalne składniki</p>
+            <p class="text-cream/65 text-xs">Soki z domu Rembowskich od 2007</p>
+          </div>
+        </div>
+
+        <div class="hidden sm:block w-px h-10 bg-cream/20"></div>
+
+        <!-- Otwarte dziś -->
+        <div class="flex items-center gap-3">
+          <span class="relative flex h-3 w-3">
+            <span class="pulse absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-400"></span>
+          </span>
+          <div class="text-left">
+            <p class="font-semibold leading-tight">Otwarte teraz</p>
+            <p class="text-cream/65 text-xs">pon–czw do 21:00</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. SKRÓT OFERTY / MENU ════════════════════════════════════════ -->
+  <section id="menu" class="py-24 sm:py-32 bg-cream-dark">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-sm uppercase tracking-[0.3em] text-forest mb-4">Menu</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-charcoal text-balance">Co u nas zjesz i wypijesz</h2>
+        <p class="mt-5 text-charcoal/65 leading-relaxed">
+          Nasze ulubione pozycje z karty. Pełne menu — w tym wina i drinki — dostępne na miejscu lub po telefonie.
+        </p>
+      </div>
+
+      <!-- Polecane dania -->
+      <div class="mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <article class="bg-cream rounded-2xl overflow-hidden shadow-sm">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hnHmtXvKGGnUuufKmggEX4vRJD5FYd.png" alt="Pierogi leniwe na słodko" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-serif text-2xl text-charcoal">Pierogi na słodko</h3>
+              <span class="text-forest font-semibold whitespace-nowrap">24 zł</span>
+            </div>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">Z domowym serem, cynamonem, bułką tartą i masłem.</p>
+          </div>
+        </article>
+
+        <article class="bg-cream rounded-2xl overflow-hidden shadow-sm">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-8mK49IKjtDZ8XulsbH82Yz2J7gN1o5.png" alt="Smażona ryba z frytkami" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-serif text-2xl text-charcoal">Ryba z frytkami</h3>
+              <span class="text-forest font-semibold whitespace-nowrap">32 zł</span>
+            </div>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">Chrupiąca panierka, frytki z koszyczka i świeża sałatka.</p>
+          </div>
+        </article>
+
+        <article class="bg-cream rounded-2xl overflow-hidden shadow-sm">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-9iRKMMxxVr8Y6BsQx1BYHpz2unotNd.jpeg" alt="Szarlotka z lodami waniliowymi" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-serif text-2xl text-charcoal">Szarlotka z lodami</h3>
+              <span class="text-forest font-semibold whitespace-nowrap">19 zł</span>
+            </div>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">Ciepła, z gałką lodów waniliowych i bitą śmietaną.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Napoje -->
+      <div class="mt-10 grid lg:grid-cols-2 gap-x-16 gap-y-12 bg-cream rounded-2xl p-8 sm:p-12 shadow-sm">
+        <div>
+          <h3 class="font-serif text-2xl text-forest border-b border-forest/15 pb-3">Napoje zimne</h3>
+          <ul class="mt-5 space-y-4 text-sm">
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Soki z domu Rembowskich</span><br /><span class="text-charcoal/55">jabłkowy, jabłko-porzeczka</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">250 ml / 12 zł</span>
+            </li>
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Smoothie Moringa</span><br /><span class="text-charcoal/55">jabłko, pomarańcz, szpinak, moringa, spirulina, mięta</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">250 ml / 16 zł</span>
+            </li>
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Smoothie Baobab</span><br /><span class="text-charcoal/55">jabłko, mango, banan, dynia, baobab, spirulina</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">250 ml / 16 zł</span>
+            </li>
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Świeżo wyciskany sok pomarańczowy</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">250 ml / 21 zł</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-serif text-2xl text-forest border-b border-forest/15 pb-3">Drinki</h3>
+          <ul class="mt-5 space-y-4 text-sm">
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Aperol Spritz</span><br /><span class="text-charcoal/55">prosecco, Aperol, woda gazowana, pomarańcz, lód</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">31 zł</span>
+            </li>
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Hugo</span><br /><span class="text-charcoal/55">prosecco, syrop z kwiatu bzu, limonka, mięta, lód</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">29 zł</span>
+            </li>
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Zielona Antresola</span><br /><span class="text-charcoal/55">wódka, Blue Curaçao, sok pomarańczowy, lód</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">28 zł</span>
+            </li>
+            <li class="flex justify-between gap-4">
+              <span><span class="font-medium text-charcoal">Mojito</span><br /><span class="text-charcoal/55">rum, cukier trzcinowy, mięta, woda gazowana, kruszony lód</span></span>
+              <span class="text-charcoal/70 whitespace-nowrap">25 zł</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center text-sm text-charcoal/45 mt-6">*Informacja o alergenach dostępna u obsługi.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 4. ATMOSFERA — GALERIA ═════════════════════════════════════════ -->
+  <section id="galeria" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-sm uppercase tracking-[0.3em] text-forest mb-4">Galeria</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-charcoal text-balance">Poczuj atmosferę Zielonej Antresoli</h2>
+        <p class="mt-5 text-charcoal/65 leading-relaxed">Latem ogród, zimą przytulne wnętrze rozgrzane herbatą z imbirem. Każda pora roku ma u nas swój klimat.</p>
+      </div>
+
+      <!-- Główne zdjęcie + siatka -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-9iRKMMxxVr8Y6BsQx1BYHpz2unotNd.jpeg"
+             alt="Gość w ogrodzie restauracji z szarlotką"
+             class="col-span-2 row-span-2 rounded-2xl object-cover w-full h-full min-h-[280px]" />
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hnHmtXvKGGnUuufKmggEX4vRJD5FYd.png"
+             alt="Pierogi na słodko z cynamonem"
+             class="rounded-2xl object-cover w-full h-48" />
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-O4Mu2ZpXSJckElZDKOmIzSfqr3QEx9.jpeg"
+             alt="Herbata z pomarańczą i imbirem"
+             class="rounded-2xl object-cover w-full h-48" />
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-8mK49IKjtDZ8XulsbH82Yz2J7gN1o5.png"
+             alt="Ryba z frytkami i sałatką"
+             class="rounded-2xl object-cover w-full h-48" />
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kj8oJQ1WHgnlDatHnDsTfUwCKS7qV1.png"
+             alt="Logo Zielona Antresola — szyld"
+             class="rounded-2xl object-cover w-full h-48 bg-cream-dark" />
+      </div>
+
+      <!-- Krótki o nas -->
+      <div class="mt-14 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 class="font-serif text-3xl sm:text-4xl text-charcoal leading-tight">Smak domu w ogrodowej oprawie</h3>
+          <p class="mt-5 text-charcoal/70 leading-relaxed">
+            Gotujemy z sercem i z lokalnych składników — od porannych soków z domu Rembowskich,
+            przez pierogi lepione na miejscu, po ciepłą szarlotkę z gałką lodów.
+          </p>
+          <p class="mt-4 text-charcoal/70 leading-relaxed">
+            Idealne na randkę w dwoje, rodzinny obiad czy spokojne spotkanie ze znajomymi.
+            Przyjmujemy rezerwacje grup do 30 osób.
+          </p>
+        </div>
+        <div class="grid grid-cols-3 gap-6 border border-forest/10 rounded-2xl p-8">
+          <div class="text-center">
+            <p class="font-serif text-3xl text-forest">2007</p>
+            <p class="text-sm text-charcoal/60 mt-1">od roku</p>
+          </div>
+          <div class="text-center border-x border-forest/10">
+            <p class="font-serif text-3xl text-forest">100%</p>
+            <p class="text-sm text-charcoal/60 mt-1">domowa kuchnia</p>
+          </div>
+          <div class="text-center">
+            <p class="font-serif text-3xl text-forest">4,8★</p>
+            <p class="text-sm text-charcoal/60 mt-1">w Google</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. ZBIJANIE OBIEKCJI — FAQ + GODZINY + MAPA ════════════════════ -->
+  <section id="faq" class="py-24 sm:py-32 bg-cream-dark">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-sm uppercase tracking-[0.3em] text-forest mb-4">Informacje</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-charcoal text-balance">Wszystko, co chcesz wiedzieć przed wizytą</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10">
+
+        <!-- Lewa: Godziny + lokalizacja -->
+        <div class="space-y-8">
+
+          <!-- Godziny z "otwarte teraz" -->
+          <div class="bg-cream rounded-2xl p-8 shadow-sm">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="font-serif text-2xl text-charcoal">Godziny otwarcia</h3>
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-green-800 bg-green-100 rounded-full px-3 py-1">
+                <span class="h-2 w-2 rounded-full bg-green-500 pulse"></span>
+                Otwarte teraz
+              </span>
+            </div>
+            <ul class="space-y-3 text-sm">
+              <li class="flex justify-between border-b border-forest/10 pb-3 font-medium">
+                <span>Poniedziałek – Czwartek</span><span class="text-charcoal/70">10:00 – 21:00</span>
+              </li>
+              <li class="flex justify-between border-b border-forest/10 pb-3 font-medium">
+                <span>Piątek – Sobota</span><span class="text-charcoal/70">10:00 – 23:00</span>
+              </li>
+              <li class="flex justify-between font-medium">
+                <span>Niedziela</span><span class="text-charcoal/70">11:00 – 20:00</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Adres + mapa -->
+          <div class="bg-cream rounded-2xl overflow-hidden shadow-sm">
+            <!-- Mapa OpenStreetMap placeholder (zastąp prawdziwą mapą w produkcji) -->
+            <div class="h-44 bg-forest/10 flex items-center justify-center relative overflow-hidden">
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=20.94,52.21,21.04,52.26&layer=mapnik&marker=52.235,20.989"
+                width="100%" height="100%" style="border:0;" loading="lazy"
+                title="Mapa lokalizacji Zielonej Antresoli"></iframe>
+            </div>
+            <div class="p-6 space-y-3 text-sm">
+              <div class="flex items-start gap-3">
+                <span class="text-forest mt-0.5">📍</span>
+                <div>
+                  <p class="font-medium text-charcoal">ul. Przykładowa 12, 00-001 Warszawa</p>
+                  <p class="text-charcoal/55 mt-0.5">Parking bezpłatny przed lokalem (10 miejsc)</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-forest">🚇</span>
+                <p class="text-charcoal/70">5 min pieszo od stacji Metro Centrum</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Prawa: FAQ -->
+        <div class="bg-cream rounded-2xl p-8 shadow-sm">
+          <h3 class="font-serif text-2xl text-charcoal mb-6">Najczęstsze pytania</h3>
+
+          <div class="space-y-1 divide-y divide-forest/10">
+
+            <details class="group py-4">
+              <summary class="flex items-center justify-between gap-4 text-sm font-medium text-charcoal select-none">
+                Czy przyjmujecie rezerwacje grupowe?
+                <span class="faq-icon text-forest text-xl leading-none flex-shrink-0">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-charcoal/65 leading-relaxed">
+                Tak — przyjmujemy grupy do 30 osób. W przypadku grup powyżej 10 osób prosimy o kontakt telefoniczny
+                minimum 48h przed wizytą. Możemy przygotować menu okolicznościowe.
+              </p>
+            </details>
+
+            <details class="group py-4">
+              <summary class="flex items-center justify-between gap-4 text-sm font-medium text-charcoal select-none">
+                Czy są opcje wegetariańskie i bezglutenowe?
+                <span class="faq-icon text-forest text-xl leading-none flex-shrink-0">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-charcoal/65 leading-relaxed">
+                Tak — około połowy karty to dania wegetariańskie lub wegańskie.
+                Dania bezglutenowe oznaczamy w menu ikoną 🌾. Obsługa chętnie doradzi
+                przy wyborze dla osób z alergiami.
+              </p>
+            </details>
+
+            <details class="group py-4">
+              <summary class="flex items-center justify-between gap-4 text-sm font-medium text-charcoal select-none">
+                Czy można przyjść z dzieckiem?
+                <span class="faq-icon text-forest text-xl leading-none flex-shrink-0">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-charcoal/65 leading-relaxed">
+                Oczywiście! Mamy krzesełka dla dzieci, menu dla najmłodszych i ogród,
+                w którym maluchy mogą pobiegać. W weekendy szczególnie polecamy wizyty
+                do godz. 17:00, kiedy jest spokojniej.
+              </p>
+            </details>
+
+            <details class="group py-4">
+              <summary class="flex items-center justify-between gap-4 text-sm font-medium text-charcoal select-none">
+                Czy przychodzić z psem?
+                <span class="faq-icon text-forest text-xl leading-none flex-shrink-0">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-charcoal/65 leading-relaxed">
+                Tak — czworonogi są mile widziane w ogrodzie. W środku lokalem nie wchodzimy z psami,
+                ale ogród jest w pełni pet-friendly.
+              </p>
+            </details>
+
+            <details class="group py-4">
+              <summary class="flex items-center justify-between gap-4 text-sm font-medium text-charcoal select-none">
+                Czy trzeba składać depozyt przy rezerwacji?
+                <span class="faq-icon text-forest text-xl leading-none flex-shrink-0">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-charcoal/65 leading-relaxed">
+                Przy rezerwacjach do 8 osób — bez depozytu. Przy grupach powyżej 8 osób
+                prosimy o wpłatę 20 zł/os. z góry na poczet rachunku (nie przepada, jest
+                odliczana od rachunku).
+              </p>
+            </details>
+
+            <details class="group py-4">
+              <summary class="flex items-center justify-between gap-4 text-sm font-medium text-charcoal select-none">
+                Jak długo stolik jest zarezerwowany?
+                <span class="faq-icon text-forest text-xl leading-none flex-shrink-0">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-charcoal/65 leading-relaxed">
+                Stolik czekamy do 15 minut po umówionej godzinie. Jeśli spóźnienie będzie dłuższe,
+                prosimy o telefon — staramy się być elastyczni.
+              </p>
+            </details>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. FINALNE CTA ════════════════════════════════════════════════ -->
+  <section id="kontakt" class="bg-forest-dark text-cream py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+      <p class="text-sm uppercase tracking-[0.3em] text-cream/60 mb-4">Zarezerwuj stolik</p>
+      <h2 class="font-serif text-4xl sm:text-5xl text-balance max-w-2xl mx-auto">
+        Najlepsze miejsca w ogrodzie znikają jako pierwsze
+      </h2>
+      <p class="mt-6 text-cream/75 max-w-lg mx-auto leading-relaxed">
+        Zadzwoń, napisz lub po prostu wpadnij — zawsze znajdziemy dla Ciebie miejsce.
+      </p>
+
+      <!-- Dwa CTA -->
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="tel:+48123456789"
+           class="inline-flex items-center gap-2 rounded-full bg-cream px-8 py-4 text-sm font-semibold text-forest-dark hover:bg-white transition-colors">
+          📞 Zadzwoń i zarezerwuj
+        </a>
+        <a href="mailto:kontakt@zielonaantresola.pl"
+           class="inline-flex items-center gap-2 rounded-full border border-cream/40 px-8 py-4 text-sm font-medium text-cream hover:bg-cream/10 transition-colors">
+          ✉ Napisz do nas
+        </a>
+      </div>
+
+      <!-- Dane kontaktowe -->
+      <div class="mt-14 grid sm:grid-cols-3 gap-8 border-t border-cream/15 pt-14 text-sm">
+        <div>
+          <p class="text-cream/50 uppercase tracking-wide text-xs mb-2">Adres</p>
+          <p class="text-cream/90 leading-relaxed">ul. Przykładowa 12<br />00-001 Warszawa</p>
+        </div>
+        <div>
+          <p class="text-cream/50 uppercase tracking-wide text-xs mb-2">Telefon &amp; e-mail</p>
+          <a href="tel:+48123456789" class="block text-cream/90 hover:text-white transition-colors">+48 123 456 789</a>
+          <a href="mailto:kontakt@zielonaantresola.pl" class="block text-cream/90 hover:text-white transition-colors mt-1 break-all">kontakt@zielonaantresola.pl</a>
+        </div>
+        <div>
+          <p class="text-cream/50 uppercase tracking-wide text-xs mb-2">Godziny</p>
+          <p class="text-cream/90 leading-relaxed">Pon–Czw 10:00–21:00<br />Pt–Sob 10:00–23:00<br />Nd 11:00–20:00</p>
+        </div>
+      </div>
+
+      <!-- Bez rezerwacji -->
+      <p class="mt-10 text-sm text-cream/50">
+        Wolisz przyjść bez rezerwacji? Zapraszamy — zwykle mamy wolne miejsca w ciągu dnia. 🌿
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════════════════════════ -->
+  <footer class="bg-cream py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kj8oJQ1WHgnlDatHnDsTfUwCKS7qV1.png" alt="Logo Zielona Antresola" class="h-14 w-auto" />
+      <p class="text-sm text-charcoal/45 text-center">© 2026 Zielona Antresola · Cafe &amp; Restaurant · E&amp;T 2007</p>
+      <div class="flex gap-5 text-sm text-charcoal/60">
+        <a href="#menu" class="hover:text-forest transition-colors">Menu</a>
+        <a href="#galeria" class="hover:text-forest transition-colors">Galeria</a>
+        <a href="#faq" class="hover:text-forest transition-colors">Informacje</a>
+        <a href="#kontakt" class="hover:text-forest transition-colors">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
